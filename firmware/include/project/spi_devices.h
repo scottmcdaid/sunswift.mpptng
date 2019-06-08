@@ -28,7 +28,7 @@
 #ifndef __SPIDEVICES__ 
 #define __SPIDEVICES__ 
 
-#include <io.h>
+#include <msp430.h>
 
 #define BIT(x) (1<<x)
 

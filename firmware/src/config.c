@@ -20,7 +20,7 @@
 /* config.c 
  * David Snowdon, 28 March, 2008
  */
-#include <io.h>
+#include <msp430.h>
 #include <signal.h>
 #include <iomacros.h>
 

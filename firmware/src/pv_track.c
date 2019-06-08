@@ -25,7 +25,7 @@
  */
 
 
-#include <io.h>
+#include <msp430.h>
 #include <signal.h>
 
 #include <scandal/leds.h>
@@ -108,14 +108,14 @@ interrupt (TIMERB0_VECTOR) timerb0(void) {
 
 void pv_track_init(void){
   /* Clear counter, input divider /1, ACLK */
-  TBCTL = /*TBIE |*/ TBCLR | ID_DIV1 | TBSSEL_ACLK;
+  TBCTL = /*TBIE |*/ TBCLR | ID_0 | TBSSEL_1;
 
   /* Enable Capture/Compare interrupt */
   TBCCTL0 = CCIE;
   TBCCR0 = 32768 / PV_HZ; /* Count 1/PV_HZ sec at ACLK=32768Hz */
   
   /* Start timer in up to CCR0 mode */
-  TBCTL |= MC_UPTO_CCR0;
+  TBCTL |= MC_1;
 
   /* Initialise variables */ 
   pv_counter = 0; 

@@ -1,6 +1,6 @@
 .PHONY: all program reset
 
-MCU=msp430x149
+MCU=msp430f149
 
 # Define utilities
 AS=msp430-as

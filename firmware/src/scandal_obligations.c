@@ -26,7 +26,7 @@
  */
 
 
-#include <io.h>
+#include <msp430.h>
 
 #include <scandal/obligations.h>
 #include <scandal/error.h>

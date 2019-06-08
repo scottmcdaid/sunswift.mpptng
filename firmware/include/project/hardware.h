@@ -17,6 +17,8 @@
  * along with the UNSWMPPTNG firmware.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#define CLOCK_SPEED (7372800)
+
 /* Hardware definitions */
 #define BIT(x) (1<<x)
 
@@ -36,13 +38,13 @@
 #define RED_LED_PORT    3
 #define YELLOW_LED_PORT 3
 
-#define STE0            BIT(0
+#define STE0            BIT(0)
 #define SIMO0           BIT(1)
 #define SOMI0           BIT(2)
 #define UCLK0           BIT(3)
 #define FPGA_CS         BIT(4) /* FPGA Chip Select (labelled "chpsel" on the board) */
-#define RED_LED_BIT     BIT(5)
-#define YELLOW_LED_BIT  BIT(6)
+#define RED_LED_BIT     (5) /* Use the new convention here*/
+#define YELLOW_LED_BIT  (6)
 
 /* Port 4 */
 

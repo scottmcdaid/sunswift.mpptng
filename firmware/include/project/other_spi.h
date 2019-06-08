@@ -24,7 +24,7 @@
 #ifndef __OTHER_SPI__
 #define __OTHER_SPI__
 
-#include <io.h>
+#include <msp430.h>
 
 #include <project/spi_devices.h>
 

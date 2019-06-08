@@ -17,7 +17,7 @@
  * along with the UNSWMPPTNG firmware.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <io.h>
+#include <msp430.h>
 #include <signal.h>
 #include <iomacros.h>
 
@@ -90,7 +90,7 @@ void init_ports(void){
 
   P3OUT = 0x00;
   P3SEL = SIMO0 | SOMI0 | UCLK0;
-  P3DIR = SIMO0 | UCLK0 | FPGA_CS | RED_LED_BIT | YELLOW_LED_BIT;
+  P3DIR = SIMO0 | UCLK0 | FPGA_CS | 1<<RED_LED_BIT | 1<<YELLOW_LED_BIT;
 
   P4OUT = 0x00;
   P4SEL = 0x00;
@@ -153,7 +153,7 @@ int main(void) {
   sc_time_t     my_timer;  
   int32_t value; 
 
-  dint();
+  __dint();
 
 #if USE_WATCHDOG
     init_watchdog(); 
@@ -194,7 +194,7 @@ int main(void) {
   /* Initialise the PV tracking mechanism */ 
   pv_track_init(); 
 
-  eint();
+  __eint();
 
   my_timer = sc_get_timer(); 
 
@@ -217,7 +217,6 @@ int main(void) {
 #endif
         
         mpptng_do_errors(); 
-
         pv_track_send_telemetry(); 
         /* We send the Input current and voltage from 
             within the pvtrack module */ 
